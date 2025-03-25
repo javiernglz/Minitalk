@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/03/25 20:13:19 by frnavarr         ###   ########.fr       */
+/*   Created: 2024/09/20 17:45:14 by frnavarr          #+#    #+#             */
+/*   Updated: 2024/10/09 12:52:46 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "libft.h"
 
-void	send_signal(int pid, char SMS)
+int	ft_atoi(const char *str)
 {
+	int	res;
+	int	sign;
 	int	i;
 
+	res = 0;
+	sign = 1;
 	i = 0;
-	while (i < 8)
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		str++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (SMS & (1 << i))
-			kill(pid, SIGUSR1);
+		if (str[i] == '-')
+			sign = -1;
 		else
-			kill(pid, SIGUSR2);
-		usleep(500);
+			sign = 1;
+		str++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		str++;
+	}
+	return (sign * res);
 }
 
-int	main(int argc, char **argv)
+/* int	main(void)
 {
-	int	i;
-	int	pid;
-	
-	if (argc != 3)
-		write(2, "Error\n", 6);
-	else
-	{
-		pid = ft_atoi(argv[1]);
-		i = 0;
-		while (argv[2][i])
-		{
-			send_signal(pid,argv[2][i]);
-			i++;
-		}
-		ft_printf("\n %i message sent\n", i);
-	}
-}
+	char *s = "42";
+	printf("%d\n", ft_atoi(s));
+	return (0);
+} */

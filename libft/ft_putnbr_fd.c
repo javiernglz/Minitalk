@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/03/25 20:13:19 by frnavarr         ###   ########.fr       */
+/*   Created: 2024/10/02 11:09:33 by frnavarr          #+#    #+#             */
+/*   Updated: 2024/10/02 11:37:47 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "libft.h"
 
-void	send_signal(int pid, char SMS)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	char	digit;
 
-	i = 0;
-	while (i < 8)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		if (SMS & (1 << i))
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		usleep(500);
+		write(fd, "-", 1);
+		n = -n;
+		ft_putnbr_fd(n, fd);
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-	int	pid;
-	
-	if (argc != 3)
-		write(2, "Error\n", 6);
 	else
 	{
-		pid = ft_atoi(argv[1]);
-		i = 0;
-		while (argv[2][i])
+		if (n > 9)
 		{
-			send_signal(pid,argv[2][i]);
-			i++;
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
 		}
-		ft_printf("\n %i message sent\n", i);
+		else
+		{
+			digit = n + 48;
+			write(fd, &digit, 1);
+		}
 	}
 }
+
+/* int main() {
+    int num = -456;
+
+    ft_putnbr_fd(num, 1);
+    write(1, "\n", 1);
+
+    return 0;
+} */

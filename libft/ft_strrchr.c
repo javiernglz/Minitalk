@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/03/25 20:13:19 by frnavarr         ###   ########.fr       */
+/*   Created: 2024/09/20 14:34:14 by frnavarr          #+#    #+#             */
+/*   Updated: 2024/10/04 16:50:58 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "libft.h"
 
-void	send_signal(int pid, char SMS)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	while (i < 8)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		if (SMS & (1 << i))
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		usleep(500);
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
+	return (0);
 }
 
-int	main(int argc, char **argv)
+/* int	main(void)
 {
-	int	i;
-	int	pid;
-	
-	if (argc != 3)
-		write(2, "Error\n", 6);
+	const char *str = "museo ruso!";
+	char *res;
+
+	res = ft_strrchr(str, 'u');
+
+	if (res)
+		printf("%s\n", res);
 	else
-	{
-		pid = ft_atoi(argv[1]);
-		i = 0;
-		while (argv[2][i])
-		{
-			send_signal(pid,argv[2][i]);
-			i++;
-		}
-		ft_printf("\n %i message sent\n", i);
-	}
-}
+		printf("Carácter no encontrado\n");
+	return (0);
+} */
