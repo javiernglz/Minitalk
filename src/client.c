@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/03/25 20:13:19 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/04/26 14:12:29 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	send_signal(int pid, char SMS)
 		else
 			kill(pid, SIGUSR2);
 		usleep(500);
+		i++;
 	}
 }
 
@@ -43,6 +44,7 @@ int	main(int argc, char **argv)
 			send_signal(pid,argv[2][i]);
 			i++;
 		}
+		send_signal(pid, '\0');
 		ft_printf("\n %i message sent\n", i);
 	}
 }

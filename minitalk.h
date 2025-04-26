@@ -4,7 +4,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-//# include "libft.h"
 # include <signal.h>
+# include "../libft/libft.h"
+# include "../printf/ft_printf.h"
 
 #endif
