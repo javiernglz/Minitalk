@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/04/26 14:12:29 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:43:03 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 {
 	int	i;
 	int	pid;
-	
+
 	if (argc != 3)
 		write(2, "Error\n", 6);
 	else
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		i = 0;
 		while (argv[2][i])
 		{
-			send_signal(pid,argv[2][i]);
+			send_signal(pid, argv[2][i]);
 			i++;
 		}
 		send_signal(pid, '\0');

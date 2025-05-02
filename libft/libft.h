@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 10:53:20 by frnavarr          #+#    #+#             */
-/*   Updated: 2024/10/09 13:25:12 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/04/28 09:45:42 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
+# include <stdarg.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t len);
@@ -68,5 +70,16 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+
+//printf
+
+int		ft_printf(char const *s, ...);
+int		ft_conversion_filter(char c, va_list *args, int *count);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int n);
+int		ft_putdir(void *s);
+int		ft_unsig_putnbr(unsigned int n);
+void	ft_puthex(unsigned long long n, int *count, bool caps);
 
 #endif

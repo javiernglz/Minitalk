@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:24 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/04/26 14:13:35 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:47:05 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ void	handle_signal(int signal)
 
 int	main(void)
 {
-	ft_printf("Server PID: %d\n", getpid());
+	int	pid;
 
+	pid = getpid();
+	ft_printf("Server PID: %d\n", getpid());
 	signal(SIGUSR1, handle_signal);
 	signal(SIGUSR2, handle_signal);
-
 	while (1)
 		pause();
+	return (0);
 }
