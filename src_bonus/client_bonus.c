@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 16:42:11 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:23:08 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	send_signal(int pid, char SMS)
 	while (i < 8)
 	{
 		if (SMS & (1 << i))
-		kill(pid, SIGUSR1);
-	else
-		kill(pid, SIGUSR2);
-	usleep(100);
-	i++;
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(100);
+		i++;
 	}
 }
 

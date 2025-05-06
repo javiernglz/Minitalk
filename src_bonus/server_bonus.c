@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:29 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 16:42:56 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:25:39 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	handle_signal(int signal, siginfo_t *info, void *context)
 {
-	static int	bit_count = 0;
-	static int	character = 0;
+	static int	bit_count;
+	static int	character;
 
 	(void)context;
 	if (signal == SIGUSR1)
@@ -29,12 +29,15 @@ void	handle_signal(int signal, siginfo_t *info, void *context)
 		bit_count = 0;
 		character = 0;
 	}
-	kill(info->si_pid, SIGUSR1);
+	if (signal == SIGUSR1)
+		kill(info->si_pid, SIGUSR1);
+	else if (signal == SIGUSR2)
+		kill(info->si_pid, SIGUSR2);
 }
 
 int	main(void)
 {
-	struct sigaction sa;
+	struct sigaction	sa;
 
 	ft_printf("Server PID: %d\n", getpid());
 	sa.sa_sigaction = handle_signal;
