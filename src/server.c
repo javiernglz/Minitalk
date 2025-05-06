@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:24 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 16:34:06 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:21:06 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	handle_signal(int signal)
 {
-	static int	bit_count = 0;
-	static int	character = 0;
+	static int	bit_count;
+	static int	character;
 
 	if (signal == SIGUSR1)
 		character |= (1 << bit_count);
@@ -29,7 +29,6 @@ void	handle_signal(int signal)
 		character = 0;
 	}
 }
-
 
 int	main(void)
 {

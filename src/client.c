@@ -6,11 +6,12 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 16:34:11 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:20:21 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
+#define ENDOFMESSAGE '\n'
 
 void	send_signal(int pid, char SMS)
 {
@@ -34,17 +35,17 @@ int	main(int argc, char **argv)
 	int	pid;
 
 	if (argc != 3)
-		write(2, "Error\n", 6);
-	else
 	{
-		pid = ft_atoi(argv[1]);
-		i = 0;
-		while (argv[2][i])
-		{
-			send_signal(pid, argv[2][i]);
-			i++;
-		}
-		send_signal(pid, '\0');
-		ft_printf("\n %i message sent\n", i);
+		write(STDERR_FILENO, "Usage: ./client <pid> <message>\n", 39);
+		return (1);
 	}
+	pid = ft_atoi(argv[1]);
+	i = 0;
+	while (argv[2][i])
+	{
+		send_signal(pid, argv[2][i]);
+		i++;
+	}
+	send_signal(pid, ENDOFMESSAGE);
+	return (0);
 }
