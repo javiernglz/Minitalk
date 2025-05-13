@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:29 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 18:25:39 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:44:41 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ void	handle_signal(int signal, siginfo_t *info, void *context)
 		bit_count = 0;
 		character = 0;
 	}
-	if (signal == SIGUSR1)
-		kill(info->si_pid, SIGUSR1);
-	else if (signal == SIGUSR2)
-		kill(info->si_pid, SIGUSR2);
+	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)

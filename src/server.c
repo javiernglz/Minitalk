@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:24 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 18:21:06 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:17:38 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	handle_signal(int signal)
 {
 	static int	bit_count;
 	static int	character;
-
+	
 	if (signal == SIGUSR1)
 		character |= (1 << bit_count);
 	bit_count++;
@@ -35,7 +35,7 @@ int	main(void)
 	int	pid;
 
 	pid = getpid();
-	ft_printf("Server PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", pid);
 	signal(SIGUSR1, handle_signal);
 	signal(SIGUSR2, handle_signal);
 	while (1)
