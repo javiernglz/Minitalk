@@ -6,12 +6,12 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/14 13:03:05 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:25:10 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
-#define ENDOFMESSAGE '\n'
+#define ENDOFMESSAGE '\0'
 
 void	ack_handler(int signal)
 {
