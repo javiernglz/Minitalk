@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 18:23:08 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:03:05 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	send_signal(pid, ENDOFMESSAGE);
-	ft_printf("\n%i characters sent\n", i);
+	ft_printf("\n%i bytes sent\n", i);
 	return (0);
 }

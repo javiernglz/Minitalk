@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:14:22 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/13 14:50:06 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:55:27 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, "Usage: ./client <pid> <message>\n", 34);
+		write(STDERR_FILENO, "Usage: ./client <pid> <message>\n", 33);
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);
