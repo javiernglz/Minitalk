@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:42:05 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/06 16:47:58 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:54:07 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINITALK_H
 
 # include <unistd.h>
+# include <stddef.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <signal.h>

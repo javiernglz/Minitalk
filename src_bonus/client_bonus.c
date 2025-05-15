@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/15 12:48:42 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:27:25 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 void	ack_handler(int signal)
 {
-	if (signal == SIGUSR1)
-		ft_printf("Received 1\n");
-	else if (signal == SIGUSR2)
-		ft_printf("Received 0\n");
+	(void)signal;
+		ft_printf("Bit confirmation received\n");
 }
 
 void	send_signal(int pid, char SMS)
