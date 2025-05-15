@@ -6,17 +6,19 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/15 12:39:12 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/15 12:48:42 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
-#define ENDOFMESSAGE '\n'
+#define ENDOFMESSAGE '\0'
 
 void	ack_handler(int signal)
 {
 	if (signal == SIGUSR1)
-		g_message_received = 1;
+		ft_printf("Received 1\n");
+	else if (signal == SIGUSR2)
+		ft_printf("Received 0\n");
 }
 
 void	send_signal(int pid, char SMS)
@@ -30,7 +32,7 @@ void	send_signal(int pid, char SMS)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(500);
+		usleep(100);
 		i++;
 	}
 }
