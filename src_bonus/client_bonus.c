@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/15 14:44:58 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:41:18 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ack_handler(int signal)
 {
 	(void)signal;
-		ft_printf("Bit confirmation received\n");
+	ft_printf("Bit confirmation received\n");
 }
 
 void	send_signal(int pid, char SMS)
@@ -30,7 +30,7 @@ void	send_signal(int pid, char SMS)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(100);
+		usleep(500);
 		i++;
 	}
 }
