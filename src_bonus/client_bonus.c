@@ -6,7 +6,7 @@
 /*   By: frnavarr <frnavarr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:23:14 by frnavarr          #+#    #+#             */
-/*   Updated: 2025/05/15 13:27:25 by frnavarr         ###   ########.fr       */
+/*   Updated: 2025/05/15 14:44:58 by frnavarr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	signal(SIGUSR1, ack_handler);
+	signal(SIGUSR2, ack_handler);
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 	{
