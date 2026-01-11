@@ -1,4 +1,5 @@
-🗣️ Minitalk
+**🗣️ Minitalk**
+
 Este proyecto fue mi primera toma de contacto seria con las señales de UNIX. El objetivo es el siguiente: crear un programa de comunicación Cliente-Servidor, 
 pero con una restricción importante, solo podía usar dos señales para transmitir toda la información (SIGUSR1 y SIGUSR2).
 
@@ -20,7 +21,7 @@ Gestión de procesos: Uso de getpid() y kill() para manejar los PIDs.
 
 Sin leaks: He tenido mucho cuidado con la gestión de memoria.
 
-Cómo probarlo
+**Cómo probarlo**
 El proyecto incluye un Makefile para compilar todo rápido.
 
 Compila el proyecto:
